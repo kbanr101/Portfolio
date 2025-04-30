@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .portfolio-item {
+            margin: 20px;
+            padding: 10px;
+            background-color: #f4f4f4;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 250px;
+            text-align: center;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background-color: white;
+            width: 80%;
+            height: 80%;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+        }
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 30px;
+            color: black;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>My Portfolio</h1>
+
+    <div class="portfolio-item" onclick="openModal('https://www.example.com')">
+        <h2>Example Website</h2>
+        <p>Click to view the website in a modal.</p>
+    </div>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <iframe id="iframe" src="" frameborder="0"></iframe>
+        </div>
+    </div>
+
+    <script>
+        function openModal(url) {
+            // Set the iframe source to the URL
+            document.getElementById('iframe').src = url;
+            document.getElementById('modal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            // Hide the modal
+            document.getElementById('modal').style.display = 'none';
+            // Reset the iframe source to stop any loaded page
+            document.getElementById('iframe').src = '';
+        }
+    </script>
+
+</body>
+</html>
